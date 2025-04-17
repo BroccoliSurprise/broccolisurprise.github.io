@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bell Page</title>
+  <title>Jingling Bell</title>
   <style>
     body {
       margin: 0;
@@ -33,13 +33,36 @@
       transition: transform 0.2s;
     }
 
-    .bell:hover {
-      transform: scale(1.1);
+    .jingling {
+      animation: jingle 0.6s ease-in-out;
+    }
+
+    @keyframes jingle {
+      0%   { transform: rotate(0deg); }
+      25%  { transform: rotate(-45deg); }
+      50%  { transform: rotate(45deg); }
+      75%  { transform: rotate(-25deg); }
+      100% { transform: rotate(0deg); }
     }
   </style>
 </head>
 <body>
-  <div class="bell" onclick="alert('pling')">🔔</div>
+  <div class="bell" onclick="jingleBell(this)">🔔</div>
   <div class="gradient"></div>
+
+  <audio id="plingSound" src="pling.mp3" preload="auto"></audio>
+
+  <script>
+    function jingleBell(bell) {
+      bell.classList.remove("jingling"); // Reset if already animating
+      void bell.offsetWidth; // Force reflow
+      bell.classList.add("jingling");
+
+      const sound = document.getElementById("plingSound");
+      sound.currentTime = 0;
+      sound.play();
+    }
+  </script>
 </body>
+
 </html>
