@@ -54,13 +54,15 @@
 
   <script>
     function jingleBell(bell) {
+      
+      const sound = document.getElementById("plingSound");
+      sound.currentTime = 0;
+      sound.play();
+      
       bell.classList.remove("jingling"); // Reset if already animating
       void bell.offsetWidth; // Force reflow
       bell.classList.add("jingling");
 
-      const sound = document.getElementById("plingSound");
-      sound.currentTime = 0;
-      sound.play();
     }
   </script>
 </body>
