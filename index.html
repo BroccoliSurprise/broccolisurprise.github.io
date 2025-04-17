@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bell Page</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to top, cyan, transparent);
+      z-index: 0;
+    }
+
+    .bell {
+      font-size: 8rem;
+      cursor: pointer;
+      z-index: 1;
+      transition: transform 0.2s;
+    }
+
+    .bell:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="bell" onclick="alert('pling')">🔔</div>
+  <div class="gradient"></div>
+</body>
+</html>
